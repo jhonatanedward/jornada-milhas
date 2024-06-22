@@ -1,0 +1,17 @@
+.card-depoimento {
+    max-width: 320px;
+    background-color: #FEF7FF;
+    border: none;
+}
+
+mat-card-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    
+    p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
