@@ -11,28 +11,7 @@
 
     .selecao-idade{
         display: flex;
-        justify-content: space-between;
-        ul {
-            list-style-type: none;
-            margin: 0 0 0 -1em;
-            padding: 12px;
-            li {
-                margin: 12px;
-                margin-bottom: 10px;
-                font-weight: 400;
-                font-size: 16px;
-                line-height: 20px;
-                color: #1D1B20;
-                text-align: start;
-                padding: 0;
-                span {
-                  vertical-align: middle;
-                  padding: 0 12px;
-                }
-            }
-        }
-
-        
+        justify-content: space-between;        
     }
     
     .selecao-categoria {

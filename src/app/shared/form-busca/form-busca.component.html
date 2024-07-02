@@ -1,5 +1,5 @@
 <app-card variant="secundary" class="form-busca">
-     <form [formGroup]="formBuscaService.formBusca">
+     <form [formGroup]="formBuscaService.formBusca" (ngSubmit)="buscar()">
         <h2>Passagens</h2>
         <div class="flex-container">
             <mat-button-toggle-group aria-label="Tipo de passagem" formControlName="somenteIda">
@@ -11,15 +11,25 @@
                     <mat-icon *ngIf="formBuscaService.formBusca.get('somenteIda')?.value">check</mat-icon>
                 SOMENTE IDA</mat-button-toggle>
             </mat-button-toggle-group>
-            <mat-chip-listbox (click)="openDialog()" aria-label="Seleção de passagens">
-                <mat-chip-option selected>1 Adulto</mat-chip-option>
-                <mat-chip-option>Econômica</mat-chip-option>
+            <mat-chip-listbox aria-label="Seleção de passagens">
+                
+                <mat-chip (click)="this.formBuscaService.openDialog()">
+                    <div class="inner">
+                        <mat-icon>check</mat-icon> {{formBuscaService.getDescricaoPassageiros()}}
+                    </div>
+                </mat-chip>            
+                <mat-chip (click)="this.formBuscaService.openDialog()">
+                    <div class="inner">
+                        <mat-icon>check</mat-icon> {{formBuscaService.getFormControlByName('tipo').value}}
+                    </div>
+                </mat-chip>
+                
             </mat-chip-listbox>
         </div>
         <div class="flex-container">
             <app-dropdown-uf [control]="formBuscaService.getFormControlByName('origem')" label="origem" iconePrefixo="flight_takeoff"></app-dropdown-uf>
-            <button mat-icon-button>
-                <mat-icon>sync_alt</mat-icon>
+            <button mat-icon-button (click)="formBuscaService.trocarOrigemDestino()">
+                <mat-icon >sync_alt</mat-icon>
             </button>
             <app-dropdown-uf [control]="formBuscaService.getFormControlByName('destino')" label="destino" iconePrefixo="flight_land"></app-dropdown-uf>
             <mat-form-field class="input-container" appearance="outline">

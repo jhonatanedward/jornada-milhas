@@ -10,11 +10,9 @@ import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 })
 export class FormBuscaComponent {
 
-  constructor(public dialog: MatDialog, 
-    public formBuscaService: FormBuscaService){
-  }
+  constructor(public formBuscaService: FormBuscaService){}
 
-  openDialog(){
-    this.dialog.open(ModalComponent);
+  buscar(){
+    console.log(this.formBuscaService.formBusca.value)
   }
 }
