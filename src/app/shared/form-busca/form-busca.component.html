@@ -27,11 +27,25 @@
             </mat-chip-listbox>
         </div>
         <div class="flex-container">
-            <app-dropdown-uf [control]="formBuscaService.getFormControlByName('origem')" label="origem" iconePrefixo="flight_takeoff"></app-dropdown-uf>
+            <div class="drop-container">
+                <app-dropdown-uf 
+                    [control]="formBuscaService.getFormControlByName('origem')" 
+                    label="origem"
+                    placeholder="Origem"
+                    iconePrefixo="flight_takeoff">
+                </app-dropdown-uf>
+            </div>
             <button mat-icon-button (click)="formBuscaService.trocarOrigemDestino()">
                 <mat-icon >sync_alt</mat-icon>
             </button>
-            <app-dropdown-uf [control]="formBuscaService.getFormControlByName('destino')" label="destino" iconePrefixo="flight_land"></app-dropdown-uf>
+            <div class="drop-container">
+                <app-dropdown-uf 
+                    [control]="formBuscaService.getFormControlByName('destino')" 
+                    label="destino" 
+                    placeholder="Destino"
+                    iconePrefixo="flight_land">
+                </app-dropdown-uf>
+            </div>
             <mat-form-field class="input-container" appearance="outline">
                 <mat-label>Data de ida</mat-label>
                 <input matInput [matDatepicker]="ida">
