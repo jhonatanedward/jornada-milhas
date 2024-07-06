@@ -16,11 +16,8 @@ export class CadastroService {
     return this.httpClient.post<PessoaUsuaria>(`${this.apiUrl}/auth/cadastro`, pessoaUsuaria);
   }
 
-  buscarCadastro(token: String): Observable<PessoaUsuaria> {
-    const headers = new HttpHeaders({
-      'Authorization' : `Bearer ${token}`
-    })
-    return this.httpClient.get<PessoaUsuaria> (`${this.apiUrl}/auth/perfil`, {headers});
+  buscarCadastro(): Observable<PessoaUsuaria> {
+    return this.httpClient.get<PessoaUsuaria> (`${this.apiUrl}/auth/perfil`);
   }
 
   editarCadastro(pessoaUsuaria: PessoaUsuaria, token: string): 
