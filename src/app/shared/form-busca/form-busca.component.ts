@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from '../modal/modal.component';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 
 @Component({
@@ -10,9 +8,13 @@ import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 })
 export class FormBuscaComponent {
 
+  @Output() realizarBusca = new EventEmitter();
+
   constructor(public formBuscaService: FormBuscaService){}
 
   buscar(){
+    const formBuscavalue = this.formBuscaService.formBusca.value;
+    this.realizarBusca.emit(formBuscavalue)
     console.log(this.formBuscaService.formBusca.value)
   }
 }

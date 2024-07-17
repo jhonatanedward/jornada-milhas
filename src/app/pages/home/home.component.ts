@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DepoimentoService } from 'src/app/core/services/depoimento.service';
 import { PromocaoService } from 'src/app/core/services/promocao.service';
 import { Depoimento, Promocao } from 'src/app/core/types/type';
@@ -13,7 +14,11 @@ export class HomeComponent implements OnInit {
   promocoes: Promocao[] = [];
   depoimentos: Depoimento[] = [];
 
-  constructor(private servicoPromocao: PromocaoService, private servicoDepoimento: DepoimentoService){}
+  constructor(
+    private servicoPromocao: PromocaoService, 
+    private servicoDepoimento: DepoimentoService,
+    private router: Router
+  ){}
   
   ngOnInit(): void {
     this.servicoPromocao.listar()
@@ -25,5 +30,9 @@ export class HomeComponent implements OnInit {
     .subscribe((resposta) => {
       this.depoimentos = resposta;
     })
+  }
+
+  navegarParaBusca(ev: any){
+    this.router.navigate(['/busca']);
   }
 }
