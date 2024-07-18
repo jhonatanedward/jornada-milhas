@@ -26,7 +26,9 @@ export class FormBuscaService {
       criancas: new FormControl(0),
       bebes: new FormControl(0),
       dataIda: new FormControl(null, [Validators.required]),
-      dataVolta
+      dataVolta,
+      conexoes: new FormControl(null),
+      companhiasId: new FormControl(null)
     });
 
     somenteIda.valueChanges.subscribe((somenteIda) => {
@@ -74,7 +76,7 @@ export class FormBuscaService {
     return descricao
   }
 
-  getFormControlByName<T>(nome:string) : FormControl{
+  obterControle<T>(nome:string) : FormControl{
     const formControl = this.formBusca.get(nome);
     if(!formControl) {
       throw new Error(`FormControl com nome "${nome}" não existe.`);
@@ -82,30 +84,44 @@ export class FormBuscaService {
     return formControl as FormControl<T>;
   }
 
-  obterDadosDeBusca() : DadosBusca{
+  obterDadosBusca() : DadosBusca{
 
-    const dataIdaControl = this.getFormControlByName<Date>('dataIda');
+    const dataIdaControl = this.obterControle<Date>('dataIda');
     
     const dadosBusca: DadosBusca = {
       pagina: 1,
       porPagina: 50,
-      somenteIda: this.getFormControlByName<boolean>('somenteIda').value,
-      origemId: this.getFormControlByName<number>('origem').value.id,
-      destinoId: this.getFormControlByName<boolean>('destino').value.id,
-      tipo: this.getFormControlByName<string>('tipo').value,
-      passageirosAdultos: this.getFormControlByName<number>('adultos').value,
-      passageirosCriancas: this.getFormControlByName<number>('criancas').value,
-      passageirosBebes: this.getFormControlByName<number>('bebes').value,
-      dataIda: dataIdaControl.value.toISOString()
+      somenteIda: this.obterControle<boolean>('somenteIda').value,
+      origemId: this.obterControle<number>('origem').value?.id,
+      destinoId: this.obterControle<boolean>('destino').value?.id,
+      tipo: this.obterControle<string>('tipo').value,
+      passageirosAdultos: this.obterControle<number>('adultos').value,
+      passageirosCriancas: this.obterControle<number>('criancas').value,
+      passageirosBebes: this.obterControle<number>('bebes').value,
+      dataIda: dataIdaControl.value?.toISOString(),
+
     }
 
-    console.log(dadosBusca)
-
-    const dataVoltaControl = this.getFormControlByName<Date>('dataVolta')
+    const dataVoltaControl = this.obterControle<Date>('dataVolta')
     
     if (dataVoltaControl.value) {
       dadosBusca.dataVolta = dataVoltaControl.value.toISOString();
     }
+
+    const conexoesControl = this.obterControle<number>('conexoes');
+
+    if(conexoesControl.value){
+        dadosBusca.conexoes = conexoesControl.value;
+    }
+
+    const companhiasControl = this.obterControle<number[]>('companhiasId')
+
+    if(companhiasControl.value){
+      dadosBusca.companhiasId = companhiasControl.value
+    }
+
+    console.log(dadosBusca)
+
     return dadosBusca
   }
 

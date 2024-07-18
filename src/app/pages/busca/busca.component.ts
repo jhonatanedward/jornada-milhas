@@ -28,7 +28,7 @@ export class BuscaComponent implements OnInit{
       tipo: "Executiva"
     }
 
-    const busca = this.formBuscaService.formEstaValido ? this.formBuscaService.obterDadosDeBusca() : buscaPadrao
+    const busca = this.formBuscaService.formEstaValido ? this.formBuscaService.obterDadosBusca() : buscaPadrao
 
     this.passagensService.getPassagens(busca).subscribe(
       res => {

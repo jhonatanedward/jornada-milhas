@@ -20,7 +20,7 @@
                 </mat-chip>            
                 <mat-chip (click)="this.formBuscaService.openDialog()">
                     <div class="inner">
-                        <mat-icon>check</mat-icon> {{formBuscaService.getFormControlByName('tipo').value}}
+                        <mat-icon>check</mat-icon> {{formBuscaService.obterControle('tipo').value}}
                     </div>
                 </mat-chip>
                 
@@ -29,7 +29,7 @@
         <div class="flex-container">
             <div class="drop-container">
                 <app-dropdown-uf 
-                    [control]="formBuscaService.getFormControlByName('origem')" 
+                    [control]="formBuscaService.obterControle('origem')" 
                     label="origem"
                     placeholder="Origem"
                     iconePrefixo="flight_takeoff">
@@ -40,7 +40,7 @@
             </button>
             <div class="drop-container">
                 <app-dropdown-uf 
-                    [control]="formBuscaService.getFormControlByName('destino')" 
+                    [control]="formBuscaService.obterControle('destino')" 
                     label="destino" 
                     placeholder="Destino"
                     iconePrefixo="flight_land">
