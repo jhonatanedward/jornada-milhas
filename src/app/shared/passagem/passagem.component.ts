@@ -7,5 +7,6 @@ import { Passagem } from 'src/app/core/types/type';
   styleUrls: ['./passagem.component.scss']
 })
 export class PassagemComponent {
+  textoIdaVolta: string = 'Ida e volta'
   @Input() passagem!: Passagem;
 }
