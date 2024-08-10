@@ -1,19 +1,10 @@
-<app-banner 
-    src="assets/imagens/banner-homepage.png"
-    alt="Banner da aplicação Jornada"
-></app-banner>
-
-<app-container>
-    
-    <app-form-busca (realizarBusca)="navegarParaBusca($event)"></app-form-busca>
-    
-    <h2>Promoções</h2>
-    <div class="card-wrapper">
-        <app-card-busca *ngFor="let promocao of promocoes;" [promocao]="promocao"></app-card-busca>
-    </div>
-    
-    <h2>Depoimentos</h2>
-    <div class="card-wrapper">
-        <app-card-depoimento *ngFor="let depoimento of depoimentos" [depoimento]="depoimento"></app-card-depoimento>
-    </div>
-</app-container>
+<section class="home-page">
+    <app-banner src="assets/imagens/banner-homepage.png" alt="Banner da aplicação Jornada"></app-banner>
+    <app-container >
+        <app-form-busca (realizarBusca)="navegarParaBusca($event)"></app-form-busca>
+        <h2>Promoções</h2>
+        <app-promocoes></app-promocoes>
+        <h2>Depoimentos</h2>
+        <app-depoimentos></app-depoimentos>
+    </app-container>
+</section>
