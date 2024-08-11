@@ -2,12 +2,6 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 
-import { FiltrosComplementaresComponent } from "./form-busca/filtros-complementares/filtros-complementares.component";
-import { LabelComponent } from "./form-busca/filtros-complementares/label/label.component";
-import { PrecosComponent } from "./form-busca/filtros-complementares/precos/precos.component";
-import { CompanhiasComponent } from "./form-busca/filtros-complementares/companhias/companhias.component";
-import { ParadasComponent } from "./form-busca/filtros-complementares/paradas/paradas.component";
-import { PassagemComponent } from "./passagem/passagem.component";
 import { FormBaseComponent } from "./form-base/form-base.component";
 import { SeletorPassageiroComponent } from "./seletor-passageiro/seletor-passageiro.component";
 import { DropdownUfComponent } from "./dropdown-uf/dropdown-uf.component";
@@ -22,6 +16,7 @@ import { BannerComponent } from "./banner/banner.component";
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
 import { MaterialModule } from "../core/material/material.module";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
     declarations: [
@@ -38,17 +33,12 @@ import { MaterialModule } from "../core/material/material.module";
         DropdownUfComponent,
         SeletorPassageiroComponent,
         FormBaseComponent,
-        PassagemComponent,
-        ParadasComponent,
-        CompanhiasComponent,
-        PrecosComponent,
-        LabelComponent,
-        FiltrosComplementaresComponent
     ],
     imports: [
         CommonModule,
         MaterialModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        RouterModule
     ],
     exports: [
         HeaderComponent,
@@ -63,13 +53,7 @@ import { MaterialModule } from "../core/material/material.module";
         BotaoControleComponent,
         DropdownUfComponent,
         SeletorPassageiroComponent,
-        FormBaseComponent,
-        PassagemComponent,
-        ParadasComponent,
-        CompanhiasComponent,
-        PrecosComponent,
-        LabelComponent,
-        FiltrosComplementaresComponent
+        FormBaseComponent
     ]
 })
 export class SharedModule {

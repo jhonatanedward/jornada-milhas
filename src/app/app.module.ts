@@ -6,22 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './pages/login/login.component';
-import { CadastroComponent } from './pages/cadastro/cadastro.component';
-import { PerfilComponent } from './pages/perfil/perfil.component';
-import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
-import { BuscaComponent } from './pages/busca/busca.component';
+import { AutenticacaoInterceptor } from './autenticacao/autenticacao.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './core/material/material.module';
-import { HomeModule } from './pages/home/home.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    CadastroComponent,
-    PerfilComponent,
-    BuscaComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
