@@ -32,6 +32,7 @@ export class PassagensService {
     const query = Object.entries(busca)
       .map(([key, value]) => {
         if(!value){
+          return ''
         }
 
         return `${key}=${value}`
